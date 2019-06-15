@@ -35,9 +35,8 @@ export class NotificationDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.masterService.getRequest('/controller/api/v1/request/get/IhK8nEKELPSqIjG6uS6b')
-    .subscribe(res=>{
-        
-      if(res.success){
+    .subscribe((res: any)=>{
+      if(res!=undefined && res.success){
         this.donarRequestResponse = res.data;
       } else {
         console.log("error");  
@@ -61,9 +60,9 @@ export class NotificationDetailsComponent implements OnInit {
         request_id: this.donarRequestResponse.id
       }
     
-      this.httpClient.post('https://us-central1-digital-blood-bank-1c7f4.cloudfunctions.net/controller/api/v1/request_accepted/add', requestObj).subscribe(response => {
+      this.httpClient.post('https://us-central1-digital-blood-bank-1c7f4.cloudfunctions.net/controller/api/v1/request_accepted/add', requestObj).subscribe((response: any) => {
         //log(response);
-        if (response.success) {
+        if (response!=undefined && response.success) {
           this.showButtons = false;
           alert(response.message);
         } else {
@@ -72,21 +71,6 @@ export class NotificationDetailsComponent implements OnInit {
       }, error => {
         alert("Acceptance failed");
       });
-    }
-    rejectNotification(){
-    
-      var requestObj = {
-    
-      }
-    
-      this.httpClient.post('/api/v1/request_accepted/add HTTP/1.1', requestObj).subscribe(response => {
-        if (response.isSuccess) {
-          alert();
-        } else {
-          alert();
-        }
-      });
-     console.log("Notification accepted");
     }
 
 }
