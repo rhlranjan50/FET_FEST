@@ -22,9 +22,6 @@
         </mat-select>
       </mat-form-field>
 
-      <app-file-upload (complete)="onFileComplete($event)"></app-file-upload>
-      <br>
-
-      <button mat-fab color="primary" type="submit" [disabled]="!requestForm.valid || !uploadData">Save</button>
+      <button mat-fab color="primary" type="submit" [disabled]="!requestForm.valid">Save</button>
     </form>
 </div>

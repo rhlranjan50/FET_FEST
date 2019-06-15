@@ -1,0 +1,45 @@
+<div>
+    <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+      <div class="item item-1" fxFlex="60%">
+        <form class="example-form form-full-width" [formGroup]="locationRegisterForm"
+          (ngSubmit)="submit_locationRegister(locationRegisterForm)">
+          <div class="example-container">
+            <div fxLayout fxLayout.xs="column">
+              <mat-card class="map-card">
+                <div #map></div>
+              </mat-card>
+            </div>
+            <mat-divider class="m-24-0"></mat-divider>
+          </div>
+        </form>
+      </div>
+    
+    
+    </div>
+
+    
+    <div class="row" fxLayout="row">
+      <div class="full-width">
+        <div class="mat-list mat-list-base">
+          <div fxLayout="row" class="mat-list-item li-item">
+            <div fxLayout="column" class="" fxFlex="30%">Name</div>
+            <div fxLayout="column" fxFlex="30%">Address</div>
+            <div fxLayout="column" fxFlex="30%">Contact</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" fxLayout="row" *ngFor="let request of requestArray">
+      <div class="full-width">
+        <div class="mat-list mat-list-base">
+          <div fxLayout="row" class="mat-list-item li-item">
+            <div fxLayout="column" class="" fxFlex="30%">{{request.accepter_name}}</div>
+            <div fxLayout="column" fxFlex="30%">{{request.accepter_address_text}}</div>
+            <div fxLayout="column" fxFlex="30%">{{request.accepter_mobile}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </div>
