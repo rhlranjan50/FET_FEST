@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material-module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Pages
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { UserRegistrationComponent } from './pages/user-registration/user-regist
 import { LocationRegistrationComponent } from './pages/location-registration/location-registration.component';
 import { NotificationDetailsComponent } from './pages/notification-details/notification-details.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { BloodDonationEventsComponent } from './pages/blood-donation-events/blood-donation-events.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     UserRegistrationComponent,
     LocationRegistrationComponent,
     NotificationDetailsComponent,
-    DashboardComponent
+    DashboardComponent,
+    BloodDonationEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
