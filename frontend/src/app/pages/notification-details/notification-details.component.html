@@ -2,8 +2,8 @@
   <div class="item item-1" fxFlex="60%">
     <div fxLayout="row">
       <div class="map-container">
-        <mat-card>
-          <img class="app-img imgs" src="../../../assets/img/img-map.png">
+        <mat-card class="map-card">
+          <div #map></div>
         </mat-card>
       </div>
     </div>
@@ -42,7 +42,7 @@
     </div>
     <div class="p-8" fxLayout="row" *ngIf=!showButtons>
       <div class="full-width">
-        <a routerLink="#"> Live track route</a>
+        <a [href]="livetrackurl" target="_blank"> Live track route</a>
       </div>
     </div>
   </div>

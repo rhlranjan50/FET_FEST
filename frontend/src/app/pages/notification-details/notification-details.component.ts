@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
 import { log } from 'util';
 import { MasterService } from 'src/app/services/master.service';
+import { GoogleMapsService } from 'src/app/services/google-maps.service';
+import { Point } from 'src/app/models/point';
+
 
 @Component({
   selector: 'app-notification-details',
@@ -11,7 +14,11 @@ import { MasterService } from 'src/app/services/master.service';
 })
 export class NotificationDetailsComponent implements OnInit {
 
+  @ViewChild('map', {static: false}) mapElement: any;
+  map: google.maps.Map;
+
   showButtons : boolean = true;
+  livetrackurl: string = "";
 
   user = {
     id: "1",
@@ -29,8 +36,9 @@ export class NotificationDetailsComponent implements OnInit {
   };
 
   constructor(
-    private httpClient: HttpClient,
     private masterService: MasterService,
+    private httpClient : HttpClient,
+    private googleMapService: GoogleMapsService
   ) { }
 
   ngOnInit() {
@@ -38,6 +46,11 @@ export class NotificationDetailsComponent implements OnInit {
     .subscribe((res: any)=>{
       if(res!=undefined && res.success){
         this.donarRequestResponse = res.data;
+        let userData = JSON.parse(localStorage.getItem('digiBloodUser'));
+        let destination = new Point(this.donarRequestResponse.address_geopoint._latitude, this.donarRequestResponse.address_geopoint._longitude);
+        let source = new Point(userData.current_address_geopoint._latitude, userData.current_address_geopoint._longitude);
+        this.livetrackurl = this.googleMapService.generateLiveDirectionURL(source,destination);
+        this.map = this.googleMapService.generateMap(this.mapElement,[source,destination], source);
       } else {
         console.log("error");  
       }
