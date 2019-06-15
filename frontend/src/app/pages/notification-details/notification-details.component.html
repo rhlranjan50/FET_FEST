@@ -18,34 +18,29 @@
           <div fxLayout="row" class="mat-list-item li-item">
             <div fxLayout="column" class="" fxFlex="45%">Mobile No.</div>
             <div fxLayout="column" fxFlex="5%">:</div>
-            <div fxLayout="column" fxFlex="50%">{{user.mobileNumber}}</div>
+            <div fxLayout="column" fxFlex="50%">{{donarRequestResponse.mobile}}</div>
           </div>
           <div fxLayout="row" class="mat-list-item li-item">
             <div fxLayout="column" class="" fxFlex="45%">Address</div>
             <div fxLayout="column" fxFlex="5%">:</div>
-            <div fxLayout="column" fxFlex="50%">{{user.address}}</div>
-          </div>
-          <div fxLayout="row" class="mat-list-item li-item">
-            <div fxLayout="column" class="" fxFlex="45%">Description</div>
-            <div fxLayout="column" fxFlex="5%">:</div>
-            <div fxLayout="column" fxFlex="50%">{{user.description}}</div>
+            <div fxLayout="column" fxFlex="50%">{{donarRequestResponse.address_text}}</div>
           </div>
         </div>
       </div>
 
 
     </div>
-    <div fxLayout="row">
+    <div fxLayout="row" *ngIf=showButtons>
       <div class="full-width">
         <div fxLayout="column" class="" fxFlex="50%">
-          <button class="m-0-8" mat-raised-button color="warn" (click)="rejectNotification()">Reject</button>
+          <button class="m-0-8" mat-raised-button color="warn" routerLink="/dashboard">Reject</button>
         </div>
         <div fxLayout="column" fxFlex="50%">
           <button class="m-0-8" mat-raised-button color="primary" (click)="acceptNotification()">Accept</button>
         </div>
       </div>
     </div>
-    <div class="p-8" fxLayout="row">
+    <div class="p-8" fxLayout="row" *ngIf=!showButtons>
       <div class="full-width">
         <a routerLink="#"> Live track route</a>
       </div>

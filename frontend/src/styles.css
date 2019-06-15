@@ -88,6 +88,22 @@ img {
         padding-top: 10%;
     }
 }  
+
+.m-24-0{
+    margin: 24px 0px !important
+}
+.m-0-8{
+  margin: 0px 8px !important
+}
+.m-16-0{
+  margin: 16px 0px !important
+}
+.page-container{
+  padding-top: 8%;
+}
+.tac{
+  text-align: center;
+}
     
 @media only screen and (min-device-width: 414px) and (max-device-height: 736px) {
     /* Styles */
