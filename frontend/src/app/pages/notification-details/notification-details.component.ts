@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationDetailsComponent implements OnInit {
 
+  user = { id: "1",
+    firstName: "Ramesh",
+    lastName: "Kumar",
+    mobileNumber:"9854525562",
+    address:"Pune",
+    description:"description goes here"
+  }
+  
   constructor() { }
 
   ngOnInit() {

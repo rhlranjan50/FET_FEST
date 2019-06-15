@@ -1,1 +1,56 @@
-Notification Details
+<div class="container page-container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="60%">
+    <div fxLayout="row">
+      <div class="map-container">
+        <mat-card>
+          <img class="app-img imgs" src="../../../assets/img/img-map.png">
+        </mat-card>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div class="full-width">
+        <div class="mat-list mat-list-base">
+          <div fxLayout="row" class="mat-list-item li-item">
+            <div fxLayout="column" class="" fxFlex="45%">Name</div>
+            <div fxLayout="column" fxFlex="5%">:</div>
+            <div fxLayout="column" fxFlex="50%">{{user.firstName}}</div>
+          </div>
+          <div fxLayout="row" class="mat-list-item li-item">
+            <div fxLayout="column" class="" fxFlex="45%">Mobile No.</div>
+            <div fxLayout="column" fxFlex="5%">:</div>
+            <div fxLayout="column" fxFlex="50%">{{user.mobileNumber}}</div>
+          </div>
+          <div fxLayout="row" class="mat-list-item li-item">
+            <div fxLayout="column" class="" fxFlex="45%">Address</div>
+            <div fxLayout="column" fxFlex="5%">:</div>
+            <div fxLayout="column" fxFlex="50%">{{user.address}}</div>
+          </div>
+          <div fxLayout="row" class="mat-list-item li-item">
+            <div fxLayout="column" class="" fxFlex="45%">Description</div>
+            <div fxLayout="column" fxFlex="5%">:</div>
+            <div fxLayout="column" fxFlex="50%">{{user.description}}</div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div fxLayout="row">
+      <div class="full-width">
+        <div fxLayout="column" class="" fxFlex="50%">
+          <button class="m-0-8" mat-raised-button color="warn" (click)="rejectNotification()">Reject</button>
+        </div>
+        <div fxLayout="column" fxFlex="50%">
+          <button class="m-0-8" mat-raised-button color="primary" (click)="acceptNotification()">Accept</button>
+        </div>
+      </div>
+    </div>
+    <div class="p-8" fxLayout="row">
+      <div class="full-width">
+        <a routerLink="#"> Live track route</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
