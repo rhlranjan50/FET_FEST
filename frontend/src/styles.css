@@ -22,7 +22,13 @@ img {
   .full-width{
     width: 100%;
   }
+.dib{
+    display: inline-block;
+}
 
+   .w-50{
+    width: 50%;
+  }
   .example-container {
     display: flex;
     flex-direction: column;
