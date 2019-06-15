@@ -101,3 +101,15 @@ img {
         padding: 10% 2% 0 2%;
     }
 }
+
+.gm-style {
+    position: static !important;
+    height: 500px !important;
+    width: 100% !important;
+}
+.mat-card.map-card {
+    width: 100%;
+}
+.mat-card.map-card div:first-child {
+    position: relative !important;
+}
