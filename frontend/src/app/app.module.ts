@@ -6,11 +6,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material-module';
+
+// Pages
 import { AppComponent } from './app.component';
+import { RequestComponent } from './pages/request';
+// Components
+import { FileUploadComponent } from './components/file-upload';
+import { HeaderComponent } from './components/header';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { LocationRegistrationComponent } from './pages/location-registration/location-registration.component';
+import { NotificationDetailsComponent } from './pages/notification-details/notification-details.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FileUploadComponent,
+    HeaderComponent,
+    RequestComponent,
+    UserRegistrationComponent,
+    LocationRegistrationComponent,
+    NotificationDetailsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
