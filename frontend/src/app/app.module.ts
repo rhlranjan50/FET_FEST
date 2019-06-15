@@ -11,6 +11,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Pages
 import { AppComponent } from './app.component';
 import { RequestComponent } from './pages/request';
+import { RequestStatusComponent } from './pages/request-status';
+
 // Components
 import { FileUploadComponent } from './components/file-upload';
 import { HeaderComponent } from './components/header';
@@ -26,6 +28,7 @@ import { BloodDonationEventsComponent } from './pages/blood-donation-events/bloo
     FileUploadComponent,
     HeaderComponent,
     RequestComponent,
+    RequestStatusComponent,
     UserRegistrationComponent,
     LocationRegistrationComponent,
     NotificationDetailsComponent,

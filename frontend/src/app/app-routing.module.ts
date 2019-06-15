@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RequestComponent } from './pages/request/request.component';
+import { RequestStatusComponent } from './pages/request-status/request-status.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component'
 import { LocationRegistrationComponent } from './pages/location-registration/location-registration.component'
 import { DashboardComponent } from './pages/dashboard/dashboard.component'
@@ -9,10 +10,10 @@ import { NotificationDetailsComponent } from './pages/notification-details/notif
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/userRegister', pathMatch: 'full' },
   { path: 'home', component: DashboardComponent },
   { path: 'request', component: RequestComponent },
-
+  { path: 'request-status', component: RequestStatusComponent },
   {
     path: 'userRegister',
     component: UserRegistrationComponent,
@@ -37,7 +38,7 @@ const routes: Routes = [
     }
 
   },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/userRegister' }
 ];
 
 @NgModule({
