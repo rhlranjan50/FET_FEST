@@ -129,3 +129,6 @@ img {
 .mat-card.map-card div:first-child {
     position: relative !important;
 }
+.map-container{
+    width: 100%;
+}
