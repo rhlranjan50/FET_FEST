@@ -8,10 +8,13 @@ import { Injectable } from '@angular/core';
 export class RequestService {
   private url = 'https://us-central1-digital-blood-bank-1c7f4.cloudfunctions.net';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  createRequest(data){
+  createRequest(data) {
     return this.http.post(this.url + '/controller/api/v1/request/add', data);
   }
 
+  getRequest(requestId) {
+    return this.http.get(this.url + '/controller/api/v1/request_accepted/' + requestId);
+  }
 }

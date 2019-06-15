@@ -26,6 +26,10 @@ export class MasterService {
     userRegister(userRegister){
       return this.httpClient.post( this._baseURL+'/controller/api/v1/user/add ',userRegister,httpOptions)
         .pipe(map((response: any) => response ));
-  
+    }
+
+    getRequest(url){
+      return this.httpClient.get( this._baseURL+ url ,httpOptions)
+        .pipe(map((response: any) => response ));
     }
 }

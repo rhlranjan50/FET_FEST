@@ -97,7 +97,9 @@ export class FileUploadComponent implements OnInit {
 
     private uploadFiles() {
         const fileUpload = document.getElementById('fileUpload') as HTMLInputElement;
-        fileUpload.value = '';
+        if(fileUpload) {
+            fileUpload.value = '';
+        }
 
         this.files.forEach(file => {
             this.uploadFile(file);

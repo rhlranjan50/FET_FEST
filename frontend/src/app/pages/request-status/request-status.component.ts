@@ -5,6 +5,7 @@ import {map, startWith} from 'rxjs/operators';
 import { Router} from "@angular/router";
 import { DataService} from '../../services/data.service';
 import { MasterService } from '../../services/master.service';
+import { RequestService } from '../../services/request.service';
 
 import {} from 'googlemaps';
 
@@ -12,14 +13,17 @@ import {GoogleMapsService} from '../../services/google-maps.service';
 import {Point} from '../../models/point';
 
 @Component({
-  selector: 'app-location-registration',
-  templateUrl: './location-registration.component.html',
-  styleUrls: ['./location-registration.component.css']
+  selector: 'app-request-status',
+  templateUrl: './request-status.component.html',
+  styleUrls: ['./request-status.component.css']
 })
-export class LocationRegistrationComponent implements OnInit {
+export class RequestStatusComponent implements OnInit {
 locationRegisterForm: FormGroup;
+  requestArray: [];
   userRegData = {};
   currentLocationLatLng: Point = new Point(0,0);
+  displayedColumns: string[] = ['Name', 'Address', 'Contact'];
+  dataSource = this.requestArray;
 
   @ViewChild('map', {static: false}) mapElement: any;
   @ViewChild('searchbox', {static: false}) inputElement: any;
@@ -31,7 +35,8 @@ locationRegisterForm: FormGroup;
     private dataService :DataService,
     private masterService :MasterService,
     private googleMapsService: GoogleMapsService,
-    private router : Router
+    private router : Router, 
+    private requestService: RequestService
   ) {
   
     this.locationRegisterForm = fb.group({  
@@ -42,6 +47,7 @@ locationRegisterForm: FormGroup;
   ngOnInit() {
     this.userRegData =  this.dataService.getTestData();
     this.findMyLocation();
+    this.getRequest();
   }
   submit_locationRegister (form){
     let self = form;
@@ -110,7 +116,7 @@ locationRegisterForm: FormGroup;
     )
   }
 
-  findMyLocation(){
+  findMyLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.currentLocationLatLng = new Point(position.coords.latitude, position.coords.longitude);
@@ -122,4 +128,11 @@ locationRegisterForm: FormGroup;
     }
   }
 
+  getRequest() {
+    let getInfo = localStorage.getItem('requestId');
+    this.requestService.getRequest(getInfo).subscribe((result: any) => {
+      this.requestArray = result.data;
+    });
+  }
 }
+

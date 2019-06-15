@@ -1,7 +1,12 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { log } from 'util';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+    providedIn: 'root'
+})
 export class HttpService {
 
     private headers;
@@ -30,8 +35,9 @@ export class HttpService {
 
     get(url: string): Observable<any> {
         let httpOptions = {
-            headers: new HttpHeaders().set('Authorization', this.authToken).set('Content-Type', 'application/json'),
+            headers: new HttpHeaders().set('Content-Type', 'application/json'),
         };
+        console.log(url+"<<<<<,get url")
         return this.httpClient.get<any>(url, httpOptions);
         //return this.customObservable;
 
